@@ -1,0 +1,26 @@
+[package]
+name = "build-an-index"
+version = "0.1.0"
+edition = "2021"
+description = "Benchmark comparing different on-disk key-value index implementations"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+zip = "2.2"
+memmap2 = "0.9"
+plotters = "0.3"
+anyhow = "1.0"
+rand = "0.8"
+rayon = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+memory-stats = "1.2"
+
+[dev-dependencies]
+tempfile = "3"
+proptest = "1.5"
+
+[profile.release]
+lto = true
+codegen-units = 1
